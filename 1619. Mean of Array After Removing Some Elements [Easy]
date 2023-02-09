@@ -1,0 +1,15 @@
+class Solution {
+    public double trimMean(int[] arr) {
+        Arrays.sort(arr);
+        int n= arr.length;
+        int waste = (n*5)/100;
+        double avg;
+        double sum=0;
+        for(int i=waste;i<n-waste;i++){
+            sum=sum+arr[i];
+        }
+        avg = sum/(n-(2*waste));
+        return avg;
+        
+    }
+}
