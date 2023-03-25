@@ -14,12 +14,7 @@ class Solution {
                 i++;
             }
         }
-        int ans = -1;
-        for(int j=0;j<nums.length;j++){
-            if(j!=nums[j]-1)
-                ans = nums[j];
-        }
-        return ans;
+       return nums[nums.length-1];
     }
     static void swap(int[] arr, int first, int second) {
         int temp = arr[first];
