@@ -1,0 +1,29 @@
+[AMAZON]
+class Solution {
+    public int findDuplicate(int[] nums) {
+                int i=0;
+        while(i!=nums.length) {
+            if (nums[i] < nums.length && i != nums[i] - 1) {
+                if (nums[i] == nums[nums[i] - 1]) {
+                    i++;
+                }
+                else {
+                    swap(nums, i, nums[i] - 1);
+                }
+            } else {
+                i++;
+            }
+        }
+        int ans = -1;
+        for(int j=0;j<nums.length;j++){
+            if(j!=nums[j]-1)
+                ans = nums[j];
+        }
+        return ans;
+    }
+    static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+}
