@@ -1,4 +1,4 @@
-[AMAZON]
+[AMAZON][MICROSOFT]
 class Solution {
     public int findDuplicate(int[] nums) {
                 int i=0;
@@ -14,7 +14,13 @@ class Solution {
                 i++;
             }
         }
-       return nums[nums.length-1];
+        int dup=-1;
+        for(int j=0;j<nums.length;j++){
+            if(j!=nums[j]-1)
+                dup = nums[j];
+        }
+        return dup;
+       
     }
     static void swap(int[] arr, int first, int second) {
         int temp = arr[first];
