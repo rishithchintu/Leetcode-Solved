@@ -6,8 +6,6 @@ class Solution {
         char tarr[]=t.toCharArray();
         Arrays.sort(sarr);
         Arrays.sort(tarr);
-        if(Arrays.equals(sarr,tarr))
-         return true;
-        return false;        
+        return Arrays.equals(sarr,tarr);
     }
 }
