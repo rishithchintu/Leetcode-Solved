@@ -1,0 +1,47 @@
+class Solution {
+boolean isPalindrome(String s) {
+        String fixed_str="";
+        for(char c:s.toCharArray()){
+            if(Character.isDigit(c) || Character.isLetter(c)){
+                fixed_str+=c;
+            }
+        }
+        fixed_str=fixed_str.toLowerCase();
+        int ptr1=0;
+        int ptr2=fixed_str.length()-1;
+        while(ptr1<=ptr2){
+            if(fixed_str.charAt(ptr1)!=fixed_str.charAt(ptr2)){
+                return false;
+            }
+            ptr1++;
+            ptr2--;
+        }
+        return true;
+    }
+}
+---------------------------------------------------------------------------------OPTIMIZED-----------------------------------------------------------------
+class Solution {
+    public boolean isPalindrome(String s) {
+        if (s.isEmpty()) {
+        	return true;
+        }
+        int start = 0;
+        int last = s.length() - 1;
+        while(start <= last) {
+        	char currFirst = s.charAt(start);
+        	char currLast = s.charAt(last);
+        	if (!Character.isLetterOrDigit(currFirst )) {
+        		start++;
+        	} else if(!Character.isLetterOrDigit(currLast)) {
+        		last--;
+        	} else {
+        		if (Character.toLowerCase(currFirst) != Character.toLowerCase(currLast)) {
+        			return false;
+        		}
+        		start++;
+        		last--;
+        	}
+        }
+        return true;
+    }
+}
